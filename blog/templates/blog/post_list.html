@@ -1,22 +1,12 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Ola's blog</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    </head>
-    <body>
-        <div>
-            <h1><a href="/">Django Girls Blog</a></h1>
-        </div>
-
-        {% for post in posts%}
-            <div>
+{% extends 'blog/base.html' %}
+{% block content %}
+    {% for post in posts %}
+        <div class="post">
+            <div class="date">
                 <p>publicado: {{post.published_date}}</p>
-                <h2>{{post.title}}</h2>
-                <p>{{post.text|linebreaksbr}}</p>
             </div>
-        {% endfor %}
-    </body>
-</html>
+            <h1><a href="">{{post.title}}</a></h1>
+            <p>{{post.text|linebreaksbr}}</p>
+        </div>
+    {% endfor %}
+{% endblock %}
